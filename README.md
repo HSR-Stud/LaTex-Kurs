@@ -34,8 +34,8 @@ GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung 
    
 ---
 ## InLab 
-### Clonen dieses Repos
-1. Um diese Repo zu Clonen, klicke in Github oben rechts auf Clonen.  
+### Clone die Vorlage
+Für den Kurs brauchst du eine [LaTex Vorlage](https://github.com/HSR-Stud/Template-LaTex)
 1. Öffne Sourcetree  
 2. Klicke auf das + bei den Tabs  
 3. Wähle clonen aus  
