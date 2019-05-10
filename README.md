@@ -34,6 +34,9 @@ GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung 
    
 ---
 ## InLab 
+### Herunterladen des Kurses
+1. Lade diesen Kurs als Zip herunter.
+
 ### Clone die Vorlage
 Für den Kurs brauchst du eine [LaTex Vorlage](https://github.com/HSR-Stud/Template-LaTex)
 1. Öffne Sourcetree  
