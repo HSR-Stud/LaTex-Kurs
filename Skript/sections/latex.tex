@@ -39,9 +39,9 @@ Auf Grund der Übersichtlichkeit rät es sich, ein \LaTeX -Dokument in mehrere T
 \befehl{input} lädt die Datei an Ort und Stelle in die Ziel-Datei und ist als ob man den Text im File direkt in die Ziel-Datei geschrieben hätte. Es kann letztlich überall und für jede Art Datei verwendet werden. Es kann auch verschachtelt angewendet werden, d.h. eine eingebundene Datei kann ihrerseits Dateien mit \befehl{input} einbinden.\vspace{6pt}
 
 \befehl{include} hingegen beginnt eine neue Seite, bevor es \befehl{input} ausführt. Includes sind nicht verschachtelbar. Eine so eingebundene Datei kann aber natürlich \befehl{input} enthalten. \befehl{include} erzeugt eine neue aux-Datei für die eingebundene Datei. Das erlaubt es beispielsweise, ein Dokument in mehrere logische Einheiten zu zerlegen (etwa einzelne Kapitel), die jede einer Datei entsprechen, die mit \befehl{include} in die Hauptdatei eingebunden wird.\\
-\begin{aufgabe}[Dokument einbinden]
-	Binde das Dokument \textit{\glqq Tutorial.tex\grqq{}} in das Hauptdokument ein. (Dokumentpfad ist relativ anzugeben)
-\end{aufgabe}
+%\begin{aufgabe}[Dokument einbinden]
+%	Binde das Dokument \textit{\glqq Tutorial.tex\grqq{}} in das Hauptdokument ein. (Dokumentpfad ist relativ anzugeben)
+%\end{aufgabe}
 
 \subsection{Überschriften und Abschnitte}
 In \LaTeX{} ist das Erzeugen einer Überschrift mit dem Einleiten eines neuen Abschnitts im Ausgabedokument verknüpft. Abschnitte lassen sich hierarchisch unterteilen. Standardmäßig stehen die folgenden Ebenen (hierarchisch absteigend) zur Verfügung:
@@ -52,9 +52,9 @@ In \LaTeX{} ist das Erzeugen einer Überschrift mit dem Einleiten eines neuen Ab
 \setcounter{section}{3}
 \setcounter{subsection}{3}
 In anderen Dokumentklassen gibt es z.B. noch \befehl{chapter} und \befehl{part} als übergeordnete Ebenen. \LaTeX{} erzeugt automatisch eine richtig verschachtelte Nummerierung. Ausschlaggebend dafür ist ausschließlich die Reihenfolge und Tiefe, in der die Befehle angegeben werden.\\
-\begin{aufgabe}[Kapitel einfügen]
-	Füge im Dokument \textit{\glqq Tutorial.tex\grqq{}} eine neue \textit{Section} hinzu. 
-\end{aufgabe}
+%\begin{aufgabe}[Kapitel einfügen]
+%	Füge im Dokument \textit{\glqq Tutorial.tex\grqq{}} eine neue \textit{Section} hinzu. 
+%\end{aufgabe}
 
 \subsection{Aufzählungen}
 Für Aufzählungen stehen unter \LaTeX{} die Umgebungen \umgebung{itemize} und \umgebung{enumerate} zur Verfügung. Selbstverständlich können Aufzählungen auch ineinandergeschachtelt werden.
@@ -62,18 +62,18 @@ Durch den Befehl \befehl{item} wird ein neues Aufzählungsobjekt erzeugt. Die Au
 \latexinputB{sources/item}
 Es sind auch nummerierte Aufzählungen mit \umgebung{enumerate} möglich. 
 \latexinputB{sources/enum}$ $
-\begin{aufgabe}[Aufzählungen erstellen]
-	Erstelle folgende Aufzählung:
-	\begin{itemize}	
-		\item Argument 1
-		\item Argument 2
-		\begin{enumerate}
-			\item Subargument 1
-			\item Subargument 2
-		\end{enumerate}
-		\item Argument 3
-	\end{itemize}
-\end{aufgabe}
+%\begin{aufgabe}[Aufzählungen erstellen]
+%	Erstelle folgende Aufzählung:
+%	\begin{itemize}	
+%		\item Argument 1
+%		\item Argument 2
+%		\begin{enumerate}
+%			\item Subargument 1
+%			\item Subargument 2
+%		\end{enumerate}
+%		\item Argument 3
+%	\end{itemize}
+%\end{aufgabe}
 
 \subsection{Mathematikumgebung}
 Mathematische Ausdrücke lassen sich mit \LaTeX$ $ sehr gut formulieren und darstellen. \LaTeX$ $ beherrscht von sich aus diverse Mathematik-Operatoren. Die \textit{American Mathematical Society} (AMS) hat allerdings hervorragende Erweiterungspakete entwickelt.
@@ -88,11 +88,11 @@ Mit \befehl{[}$\; $\befehl{]} lassen sich ebenfalls Gleichungen in einem neuen A
 Mit \umgebung{\$ \$} können Gleichungen \textit{inline} geschrieben werden. Das bedeutet Formeln können zusammen mit Text auf derselben Linie dargestellt werden. 
 $ $\latexinputB{sources/informel}
 
-\begin{aufgabe}[Physikalisches Gaußsches Gesetz]
-	Versuche folgenden mathematischen Ausdruck zu schreiben:
-	\[ \text{div } \vec{D} = \vec{\nabla} \cdot \vec{D} = \rho \Leftrightarrow \oiint_{\partial V}\vec{D}\cdot d\vec{A} = \iiint_V \rho \cdot dV = Q(V) \]
-	Experimentiere auch mit der \textit{inline}-Mathematikumgebung, um die unterschiedlichen Darstellungen zu sehen. 
-\end{aufgabe}
+%\begin{aufgabe}[Physikalisches Gaußsches Gesetz]
+%	Versuche folgenden mathematischen Ausdruck zu schreiben:
+%	\[ \text{div } \vec{D} = \vec{\nabla} \cdot \vec{D} = \rho \Leftrightarrow \oiint_{\partial V}\vec{D}\cdot d\vec{A} = \iiint_V \rho \cdot dV = Q(V) \]
+%	Experimentiere auch mit der \textit{inline}-Mathematikumgebung, um die unterschiedlichen Darstellungen zu sehen. 
+%\end{aufgabe}
 
 \subsection{Bilder einfügen}
 In einem Dokument möchte man häufig Grafiken und Bilder einfügen. Hierfür bietet \LaTeX{} den Befehl \befehl{includegraphics}. Das einzufügende Bild sollte sich irgendwo im selben Ordner, oder noch besser in einem Subordner des Hauptdokuments befinden.
@@ -118,16 +118,16 @@ In \texttt{\{|l|c|r|\}} werden die Spalten angegeben. Folgende Spaltentypen sind
 	\texttt{b\{breite\}}: & Minipage mit angegebener Breite, Ausrichtung unten\\
 	\texttt{X}: & Spalte mit variabler Breite (\texttt{tabularx})\\
 \end{tabular}\clearpage
-\begin{aufgabe}[Tic Tac Toe]
-  Versuche mittels \umgebung{tabular} ein Tic Tac Toe-Spiel zu zeichnen.\\
-  Bsp:
-  \begin{tabular}{c|c|c}
-  	x & o & o\\ \hline
-  	x & o & x\\ \hline
-  	x & x & o\\
-  \end{tabular}
-  
-\end{aufgabe}
+%\begin{aufgabe}[Tic Tac Toe]
+%  Versuche mittels \umgebung{tabular} ein Tic Tac Toe-Spiel zu zeichnen.\\
+%  Bsp:
+%  \begin{tabular}{c|c|c}
+%  	x & o & o\\ \hline
+%  	x & o & x\\ \hline
+%  	x & x & o\\
+%  \end{tabular}
+%  
+%\end{aufgabe}
 
 \subsection{Minipages}
 Die \umgebung{minipage} wird oft genutzt um Dinge nebeneinander setzen zu können, die sich sonst nicht so einfach nebeneinander setzen lassen. Zum Beispiel zwei Bilder nebeneinander, zwei Tabellen oder ein Bild neben einen Text beziehungsweise umgekehrt. Die Idee hinter der \umgebung{minipage}-Umgebung ist, dass innerhalb einer bestehenden Seite eine weitere Seite eingebaut wird. Dadurch hat man nun die Möglichkeit diese neue Seite zu verwenden oder eine neue \textit{Minipage} danebenzusetzen (z.B. um zwei Bilder nebeneinander darzustellen).
@@ -162,11 +162,11 @@ Hier noch Links zu weiteren \LaTeX -Tutorials: \\
 \href{http://latex.hpfsc.de/content/latex_tutorial/}{latex.hpfsc.de}\\
 \href{https://www.fernuni-hagen.de/imperia/md/content/zmi_2010/a026_latex_einf.pdf}{fernuni-hagen.de}}\\
 
-\begin{aufgabe}[Ausprobieren!]
-  \LaTeX{} lässt sich am besten lernen, indem man ausprobiert und andere Files analysiert. Clone dazu weitere Formelsammlungen von {\color{blue}\href{https://github.com/HSR-Stud/VorlageZFLaTex}{GitHub}}, schau dir an wie diese erstellt wurden und passe sie nach deinem Geschmack an. Falls Fragen auftauchen, dann versuch dein Problem zu googeln.\vspace{6pt}\\
-  \textbf{\large Viel Spass beim Lernen! %\tikzsymbolsuse{Smiley}[1]
-}
-\end{aufgabe}
+%\begin{aufgabe}[Ausprobieren!]
+%  \LaTeX{} lässt sich am besten lernen, indem man ausprobiert und andere Files analysiert. Clone dazu weitere Formelsammlungen von {\color{blue}\href{https://github.com/HSR-Stud/VorlageZFLaTex}{GitHub}}, schau dir an wie diese erstellt wurden und passe sie nach deinem Geschmack an. Falls Fragen auftauchen, dann versuch dein Problem zu googeln.\vspace{6pt}\\
+%  \textbf{\large Viel Spass beim Lernen! %\tikzsymbolsuse{Smiley}[1]
+%}
+%\end{aufgabe}
 	
 %Beispiele für Befehle
 %		Hinweis auf Youtube Tutorials
