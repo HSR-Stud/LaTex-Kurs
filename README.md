@@ -55,7 +55,7 @@ Pflichtlektüre für alle die ein Repo wieder hochladen wollen oder ein Neues er
 [Willkommen](https://github.com/HSR-Stud/Willkommen#willkommen)
 
 ### Vorlage
-Die Untermodule müssen rekursiv eingebunden werden.
+!Achtung!: Die Untermodule müssen rekursiv eingebunden werden.
 
 [Vorlage](https://github.com/HSR-Stud/VorlageZFLaTex)
 
