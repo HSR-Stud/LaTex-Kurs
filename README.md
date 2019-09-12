@@ -33,7 +33,7 @@ GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung 
    3.3 Es muss kein globales .gitignore File erstellt werden  
    3.4 Es muss kein SSH-Schlüssel erstellt werden  
    3.5 Sobald du beim Clonen eines Repos angelang bist, kann du den weiteren Setup übersprungen
--->
+--!>
    
 ---
 ## InLab 
