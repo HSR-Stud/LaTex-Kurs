@@ -1,7 +1,7 @@
 # LaTex-Kurs
 ---
 ## PreLab
-## Installtion  
+### Installtion  
  Damit du möglichst viel vom LaTex Kurs profitierst, solltest du folgendes installieren:
  
  ### LaTeX Distribution
