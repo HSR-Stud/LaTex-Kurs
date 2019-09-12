@@ -21,8 +21,10 @@ Angenehmer ist es mit Texstudio.
 Texstudio ist ein standalone IDEs, welches spezifisch für LaTeX entwickelt wurde.
 
 ### Git-Installation mit Sourcetree / GitHub
-GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung eingesetzt wird. Git kann von der Kommandozeile (Git CMD) aus genutzt werden. Dies ist jedoch sehr mühsam, weshalb wir die Nutzung des Git-Guis Sourcetree empfehlen. 
-   1. [GitHub Account erstellen](https://www.github.com)
+GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung eingesetzt wird. Git kann von der Kommandozeile (Git CMD) aus genutzt werden. Dies ist jedoch sehr mühsam, weshalb wir die Nutzung des Git-Guis Github Desktop empfehlen. 
+
+- [Github Desktop](https://desktop.github.com/)
+  <!-- 1. [GitHub Account erstellen](https://www.github.com)
    Dabei solltest du unbedingt deine HSR-Emailadresse verwenden, denn dann hast du direkt Anspruch auf ein Github Student Developer Pack.    Dies erlaubt es dir unlimitierte private Repositories auf Github zu erstellen, Gratis Continuous Integration mit Travis-CI für private    Repositories sowie AWS und Digital Ocean Credits. 
    2. [Github Student Developer Pack beantragen](https://www.openhsr.ch/tipps/github-education-pack/)  
    3. [Sourcetree installieren für ein Git_GUI](https://www.sourcetreeapp.com/)  
@@ -31,6 +33,7 @@ GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung 
    3.3 Es muss kein globales .gitignore File erstellt werden  
    3.4 Es muss kein SSH-Schlüssel erstellt werden  
    3.5 Sobald du beim Clonen eines Repos angelang bist, kann du den weiteren Setup übersprungen
+-->
    
 ---
 ## InLab 
