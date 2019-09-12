@@ -32,15 +32,10 @@ GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung 
 
 ### Clone die Vorlage
 Für den Kurs brauchst du eine [LaTex Vorlage](https://github.com/HSR-Stud/Template-LaTex)
-1. Öffne Sourcetree  
-2. Klicke auf das + bei den Tabs  
-3. Wähle clonen aus  
-4. Setze den Cursor in das erste leere Feld unter dem Titel
-4.1 Drücke Ctrl + V
-4.2 Wähle aus, wo das Repo gespeichert werden soll. Achtung nicht in einer Cloud (Google Drive, Dropbox etc.).  
-4.3 Gib an, wie die Kopie des Repos auf deinem Rechner heissen soll.  
-4.3.1 (!) Wenn das Repo Submodule enthält, musst du unter Advanced Options die Checkbox "Recurse submodules" aktivieren.  
-Falls du auf Probleme stösst findest du hier noch die offizielle [Sourcetree Anleitung zum Clonen eines Repos](https://confluence.atlassian.com/bitbucket/clone-a-repository-223217891.html). 
+1. Öffne Github Desktop  
+2. 
+3.
+4.
 
 ---
 ## PostLab
