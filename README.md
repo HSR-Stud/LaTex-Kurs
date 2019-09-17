@@ -26,7 +26,7 @@ Angenehmer ist es mit Texstudio.
 Texstudio ist ein standalone IDEs, welches spezifisch für LaTeX entwickelt wurde.
 
 ### GitHub Account
-[GitHub Account erstellen](https://www.github.com) \
+- [GitHub Account erstellen](https://www.github.com) \
 Dabei solltest du unbedingt deine HSR-Emailadresse verwenden, denn dann hast du direkt Anspruch auf ein Github Student Developer Pack. 
 
 ### Git-Installation mit Github-Desktop
