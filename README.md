@@ -27,7 +27,7 @@ Texstudio ist ein standalone IDEs, welches spezifisch für LaTeX entwickelt wurd
 
 ### GitHub Account
 [GitHub Account erstellen](https://www.github.com) \
-Dabei solltest du unbedingt deine HSR-Emailadresse verwenden, denn dann hast du direkt Anspruch auf ein Github Student Developer Pack.    Dies erlaubt es dir unlimitierte private Repositories auf Github zu erstellen, Gratis Continuous Integration mit Travis-CI für private    Repositories sowie AWS und Digital Ocean Credits. 
+Dabei solltest du unbedingt deine HSR-Emailadresse verwenden, denn dann hast du direkt Anspruch auf ein Github Student Developer Pack. 
 
 ### Git-Installation mit Github-Desktop
 GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung eingesetzt wird. Git kann von der Kommandozeile (Git CMD) aus genutzt werden. Dies ist jedoch sehr mühsam, weshalb wir die Nutzung des Git-Guis Github-Desktop empfehlen. 
