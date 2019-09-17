@@ -3,9 +3,8 @@
 ## PreLab
 ### Installation  
  Damit du möglichst viel vom LaTex Kurs profitierst, solltest du folgendes installieren:
- 
- -Eine LaTeX-Distribution, sowie einen Editor um LaTeX-Files zu bearbeiten.
- -Programm um möglichst einfach Files von Github runter-, sowie raufzuladen.
+ -[Eine LaTeX-Distribution, sowie einen Editor um LaTeX-Files zu bearbeiten.]
+ -[Programm um möglichst einfach Files von Github runter-, sowie raufzuladen.]
  
  Die empfohlenen Programme findest du unten.
  
