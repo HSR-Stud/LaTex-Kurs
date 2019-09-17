@@ -7,6 +7,7 @@
  - Programm um möglichst einfach Files von Github runter-, sowie raufzuladen.
  
  Die empfohlenen Programme findest du unten.
+ **Wichtig:** Installiere die Programme in der gegebenen Reihenfolge! Ansonsten kann es zu Problemen kommen.
  
  ### LaTeX Distribution
  Wir empfehlen TexLive. TexLive ist sowohl auf Linux wie auch auf Windows ausführbar.
@@ -24,8 +25,12 @@ Angenehmer ist es mit Texstudio.
 
 Texstudio ist ein standalone IDEs, welches spezifisch für LaTeX entwickelt wurde.
 
-### Git-Installation mit Sourcetree / GitHub
-GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung eingesetzt wird. Git kann von der Kommandozeile (Git CMD) aus genutzt werden. Dies ist jedoch sehr mühsam, weshalb wir die Nutzung des Git-Guis Github Desktop empfehlen. 
+### GitHub Account
+[GitHub Account erstellen](https://www.github.com)
+Dabei solltest du unbedingt deine HSR-Emailadresse verwenden, denn dann hast du direkt Anspruch auf ein Github Student Developer Pack.    Dies erlaubt es dir unlimitierte private Repositories auf Github zu erstellen, Gratis Continuous Integration mit Travis-CI für private    Repositories sowie AWS und Digital Ocean Credits. 
+
+### Git-Installation mit Github-Desktop
+GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung eingesetzt wird. Git kann von der Kommandozeile (Git CMD) aus genutzt werden. Dies ist jedoch sehr mühsam, weshalb wir die Nutzung des Git-Guis Github-Desktop empfehlen. 
 
 - [Github Desktop](https://desktop.github.com/)
    
