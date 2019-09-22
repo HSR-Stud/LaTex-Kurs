@@ -42,10 +42,12 @@ GitHub basiert auf der Software Git, welche zur Versionskontrolle & -verwaltung 
 
 ### Clone die Vorlage
 Für den Kurs brauchst du eine [LaTex Vorlage](https://github.com/HSR-Stud/Template-LaTex)
-1. Öffne Github Desktop  
-2. 
-3.
-4.
+1. Klicke auf den obigen Link  
+2. Wähle den Grünen Button (Use this template)
+3. Erstelle ein Privates Repository
+4. Öffne Github Desktop
+5. Gehe auf File/Clone a repository und wähle das Soeben erstellte Repository aus und klicke auf Clone
+6. Nun kannst du die Aufgaben aus dem Kurs lösen
 
 ---
 ## PostLab
