@@ -3,6 +3,29 @@
 \usepackage{tikz}
 \usetikzlibrary{trees}
 
+\usetikzlibrary{calc}
+\usetikzlibrary{bending}
+\usetikzlibrary{decorations.pathreplacing}
+
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main}
+
+\tikzset{
+	db/.pic={
+		\draw[white, fill=white](-.6,0) rectangle (.6,1.4);
+		\draw[white, fill=white](0,1.4) ellipse [x radius=.6,y radius=.15];
+		\foreach \y in {0,.5,1}
+		{
+			\draw[thick, fill=white]
+				(-0.6,\y) to [looseness=0.5,bend right=90] ++(1.2,0)
+						  to ++(0,0.4)
+						  to [looseness=0.5,bend left=90] ++(-1.2,0)
+						  to ++(0,-0.4);
+			\draw[thick] (-0.6,\y+0.4) edge[looseness=0.5,bend left=90] ++(1.2,0);
+		}
+	}
+}
+
 
 \title{Git \& \textrm{\LaTeX}-Einführung}
 \author{

@@ -38,7 +38,7 @@
 
 \begin{frame}[c]{Bemerkung}
 	\centering
-	{\LARGE 
+	{\LARGE  
 	Git l\"ost ein komplex Problem \\
 	daher ist Git auch komplex
 	}
@@ -54,37 +54,39 @@
 \end{frame}
 
 \begin{frame}{Snapshots}
-    \begin{center}\begin{tikzpicture}
+    \begin{center}
+    \begin{tikzpicture}
     \node at (-1, 2) [draw, fill=gray!15, thick, font=\ttfamily, left] (P) {Project/};
     \pause
     \draw[black, thick, ->] (P.north east) ++(.2,-.2) arc (-90:180:.5)
         node[pos=.6, above]{bearbeiten};
     \draw[black, thick, ->] (0, 0) -- (7.2, 0) node [below] {Zeit};
-    \foreach \x/\t in {0/16:04:03, 2/16:37:00, 4/17:15:00, 6/18:01:03}
+    \foreach \x/\t in {0/16:04:28, 2/16:37:01, 4/17:15:44, 6/18:01:03}
     {
         \pause
-        \draw[color=black, fill=magenta, thick] (\x, 0) circle (.1)
-            node[below=5pt, anchor=east, rotate=70, font=\ttfamily] {\tiny \t};
-        \draw[thick, ->, gray] (-.8, 2) to[bend left] (\x, .2);
+        \draw[color=black, fill=magenta, thick] (\x, 0) circle (.12)
+            node[below=5pt, anchor=east, rotate=70, font=\ttfamily, align=right] {\tiny 2019-09-18\\\small\t};
+        \draw[thick, ->, gray] (-.8, 2) to[bend left, in=120] (\x, .2);
     }
-    \end{tikzpicture}\end{center}
+    \end{tikzpicture}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Begriff: Commit}
     \begin{block}{Ein Commit enthalt}
     \begin{itemize}
-        \item Die \"Anderungen der Dateien \pause
+        \item Die \"Anderungen der Dateien \textbf{``snapshot''} \pause
         \item Autor Name + Email \pause
         \item Zeitstempel \pause
         \item \textbf{Eine Beschreibung der \"Anderungen} \pause
-        \item kryptographisches Hash der Dateien \pause
-    \end{itemize}   
+        \item kryptographisches Hash der Dateien
+    \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}[fragile]{Commit Beispiel}
-    \centering\footnotesize
-    \begin{verbatim}
+\centering\footnotesize
+\begin{verbatim}
 commit e584e04c5f8ffb14e50c701c1fd8178457a51743
 Author: Nao Pross <naopross@thearcway.org>
 Date:   Tue Jan 22 04:31:30 2019 +0100
@@ -93,11 +95,119 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 
     By being a std::set job did not allow to add duplicate
     elements, changing it to a std::multiset fixes the issue.
-
-    \end{verbatim}
+\end{verbatim}
 \end{frame}
 
 \begin{frame}{Begriff: Remote}
+    \begin{minipage}{.65\linewidth}
+	\begin{tikzpicture}
+		\draw[thick]
+			(0,0) pic{db} node(DB1){}
+			(DB1) ++(4.5, 0) pic{db} node (DB2){};
+
+		\begin{pgfonlayer}{bg}
+		\draw[blue!80, fill=blue!10]
+			(DB1.north west) ++(-1, 3) node[
+				black, anchor=north west, below=.75cm, right=.15cm, align=left
+			]{Laptop\\{\footnotesize (Sie)}} rectangle ($(DB1.south east) + (1, -1)$);
+		\draw[red!80, fill=red!10]
+			(DB2.north west) ++(-1, 3) node[
+				black, anchor=north west, below=.75cm, right=.1cm, align=left
+			]{Server\\{\footnotesize (z.B. Github)}} rectangle ($(DB2.south east) + (1, -1)$);
+		\end{pgfonlayer}
+		\visible<3->{
+		\draw[thick] (DB1) ++(1,  .2) edge[<-, bend right] 
+			node[pos=.5, below]{\texttt{pull}} ++(2.5, 0);
+		\draw[thick] (DB1) ++(1, 1.2) edge[->, bend left] 
+			node[pos=.5, above]{\texttt{push}}  ++(2.5, 0);
+		}
+	\end{tikzpicture}
+    \end{minipage}
+	\pause
+	\begin{minipage}[c]{.3\linewidth}
+	Ein \emph{Remote} ist ein Clone (Kopie) des Repos auf eine andere Maschine
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Zu einem Remote synchronisieren}
+\centering
+\begin{tikzpicture}
+	\node (rem) at (0, 0) {}
+					(.5,0) node[above=.2cm, align=left] {\texttt{origin}};
+	\begin{pgfonlayer}{bg}
+	\draw[red, fill=red!10] ($(rem)+(-.5,1)$) rectangle ($(rem)+(6.5,-1)$);
+	\end{pgfonlayer}
+	\foreach \x in {0,...,2}
+	{
+		\draw[thick, black, ->] ($(rem)+(\x,0)$) edge ++(1, 0);
+		\draw[thick, black, fill=green!60!black] ($(rem)+(\x, 0)$) circle [radius=.1];
+	}
+
+	\node (loc) at (0,-2.5) {}
+					(.5,-2.5) node[above=.2cm, align=left] {Local};
+	\begin{pgfonlayer}{bg}
+	\draw[blue, fill=blue!10] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-1)$);
+	\end{pgfonlayer}
+	\foreach \x in {0,...,4}
+	{
+		\draw[thick, black, ->] ($(loc)+(\x, 0)$) edge ++(1, 0);
+		\draw[thick, black, fill=magenta] ($(loc)+(\x, 0)$) circle [radius=.1];
+	}
+
+	\draw[thick, decorate, decoration={brace, mirror}] (2.5, -2.75) 
+		-- node[below=.15cm]{\footnotesize Neue Commits} (4.5,-2.75);
+	\pause
+
+	\draw[ultra thick, ->, darkgray] (3, -2.25) to[bend left]
+		node[pos=.5, left]{\texttt{push}} (3,-.2);
+	
+	\foreach \x in {3,...,4}
+	{
+		\draw[thick, black, ->] ($(rem)+(\x,0)$) edge ++(1, 0);
+		\draw[thick, black, fill=magenta] ($(rem)+(\x, 0)$) circle [radius=.1];
+	}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Von einem Remote synchronisieren}
+\centering
+\begin{tikzpicture}
+	\node (rem) at (0, 0) {}
+					(.5,0) node[above=.2cm] {\texttt{origin}};
+	\begin{pgfonlayer}{bg}
+	\draw[red, fill=red!10] ($(rem)+(-.5,1)$) rectangle ($(rem)+(6.5,-1)$);
+	\end{pgfonlayer}
+	\foreach \x in {0,...,4}
+	{
+		\draw[thick, black, ->] ($(rem)+(\x,0)$) edge ++(1, 0);
+		\draw[thick, black, fill=green!60!black] ($(rem)+(\x, 0)$) circle [radius=.1];
+	}
+
+	\node (loc) at (0,-2.5) {}
+					(.5,-2.5) node[above=.2cm] {Local};
+	\begin{pgfonlayer}{bg}
+	\draw[blue, fill=blue!10] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-1)$);
+	\end{pgfonlayer}
+	\foreach \x in {0,...,2}
+	{
+		\draw[thick, black, ->] ($(loc)+(\x, 0)$) edge ++(1, 0);
+		\draw[thick, black, fill=magenta] ($(loc)+(\x, 0)$) circle [radius=.1];
+	}
+
+	\draw[thick, decorate, decoration={brace}] (2.5, .25) 
+		-- node[above=.15cm]{\footnotesize Neue Commits} (4.5,.25);
+	\pause
+
+	\draw[ultra thick, <-, darkgray] (3, -2.25) to[bend left]
+		node[pos=.5, left]{\texttt{pull}} (3,-.2);
+
+	
+	\foreach \x in {3,...,4}
+	{
+		\draw[thick, black, ->] ($(loc)+(\x,0)$) edge ++(1, 0);
+		\draw[thick, black, fill=green!60!black] ($(loc)+(\x, 0)$) circle [radius=.1];
+	}
+\end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Begriff: Merge}
@@ -118,7 +228,6 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 		\item Fortlaufend Commits erstellen Bsp. nach jedem Kapitel \pause
 		\item Push
 	\end{enumerate}
-	
 \end{frame}
 
 \begin{frame}{Arbeitsablauf II}
@@ -131,5 +240,4 @@ Arbeitsablauf um eine Formelsammlung zu bearbeiten (mehrere Autoren).
 	\item Mit dem Master mergen Bsp. nach jedem Kapitel \pause
 	\item Push
 \end{enumerate}
-
 \end{frame}
