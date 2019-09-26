@@ -147,10 +147,12 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 
 	Remote k\"onnen ein name haben, z.B. \texttt{origin}
 	\end{minipage}
-\end{center}\end{frame}
+\end{center}
+\end{frame}
 
 \begin{frame}{Zu einem Remote synchronisieren}
-\centering
+\begin{center}
+\resizebox{.9\textwidth}{!}{
 \begin{tikzpicture}
 	\node (rem) at (0, 0) {}
 					(.5,0) node[above=.2cm] {\texttt{origin}};
@@ -191,10 +193,13 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 		\draw[thick, black, fill=magenta] ($(rem)+(\x, 0)$) circle [radius=.1];
 	}
 \end{tikzpicture}
+}
+\end{center}
 \end{frame}
 
 \begin{frame}{Von einem Remote synchronisieren}
 \centering
+\resizebox{.9\textwidth}{!}{
 \begin{tikzpicture}
 	\node (rem) at (0, 0) {}
 					(.5,0) node[above=.2cm] {\texttt{origin}};
@@ -235,9 +240,135 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 		\draw[thick, black, fill=green!60!black] ($(loc)+(\x, 0)$) circle [radius=.1];
 	}
 \end{tikzpicture}
+}
 \end{frame}
 
-\begin{frame}{Begriff: Merge}
+\begin{frame}{Merge}
+\begin{center}
+\resizebox{.9\textwidth}{!}{
+\begin{tikzpicture}
+	\node (rem) at (0, 0) {}
+					(.5,0) node[above=.2cm] {\texttt{origin}};
+
+	\node (loc) at (0,-2.5) {}
+					(.5,-2.5) node[above=.2cm] {Local};
+
+	\begin{pgfonlayer}{bg}
+	\draw[red, fill=red!10] ($(rem)+(-.5,1)$) rectangle ($(rem)+(6.5,-1)$);
+	\draw[blue, fill=blue!10] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-1)$);
+	\end{pgfonlayer}
+
+	\foreach \x in {0,...,2}
+	{
+		\draw[thick, black, ->] ($(rem)+(\x,0)$) edge ++(1, 0);
+		\draw[thick, black, fill=orange] ($(rem)+(\x, 0)$) circle [radius=.1];
+
+		\draw[thick, black, ->] ($(loc)+(\x, 0)$) edge ++(1, 0);
+		\draw[thick, black, fill=orange] ($(loc)+(\x, 0)$) circle [radius=.1];
+	}
+
+	\foreach \x in {3,...,4}
+	{
+		\draw[thick, black, ->] ($(rem)+(\x,0)$) edge ++(1, 0);
+		\draw[thick, black, fill=green!60!black] ($(rem)+(\x, 0)$) circle [radius=.1];
+
+		\draw[thick, black, ->] ($(loc)+(\x, 0)$) edge ++(1, 0);
+		\draw[thick, black, fill=magenta] ($(loc)+(\x, 0)$) circle [radius=.1];
+	}
+
+	\pause
+	\draw[thick, decorate, decoration={brace}] (2.5, .25) 
+		-- node[above=.15cm]{\footnotesize Neue Commits} (4.5,.25);
+	\draw[thick, decorate, decoration={brace, mirror}] (2.5, -2.75) 
+		-- node[below=.15cm]{\footnotesize Neue Commits} (4.5,-2.75);
+
+	\pause
+	\draw[ultra thick, <-, darkgray] (3, -2.25) to[bend left]
+		node[pos=.5, left]{\texttt{fetch}} (3,-.2);
+\end{tikzpicture}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}{Begriff: 3-Way Merge}
+\begin{center}
+\resizebox{.9\textwidth}{!}{
+\begin{tikzpicture}
+	\node (loc) at (0, 0) {}
+					(.5,0) node[above=.2cm] {Local};
+
+	\begin{pgfonlayer}{bg}
+	\draw[blue, fill=blue!10] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-2)$);
+	\end{pgfonlayer}
+
+	\foreach \x in {0,...,2,}
+	{
+		\draw[thick, black, fill=orange] ($(loc)+(\x, -1)$) circle [radius=.1] node[] (C\x) {};
+	}
+
+	\foreach \x in {3,...,4}
+	{
+		\draw[thick, black, fill=magenta] ($(loc)+(\x, -1)$) circle [radius=.1] node (CL\x) {};
+		\draw[thick, black, fill=green!60!black] ($(loc)+(\x, 0)$) circle [radius=.1] node (CR\x) {};
+	}
+
+	\draw[thick, black]
+		(C0) node[above=.4cm, right=.1] {\tiny\texttt{master}} to (C1) to (C2)
+		(C2) to[in=200, out=30] (CR3) node [above=.5cm, right=.1] {\tiny\texttt{origin/master}}
+		(CR3) to (CR4)
+		(C2) to (CL3)
+		(CL3) to (CL4)
+	;
+	
+	\pause
+
+	\draw[thick, fill=orange, black] ($(loc)+(5,-1)$) circle [radius=.1] node (C5) {};
+
+	\draw[thick, black]
+		(CR4) to[out=-20, in=160] (C5)
+		(CL4) to (C5) to (6,-1)
+	;
+
+	\pause
+
+	\draw[ultra thick, darkgray, ->]
+		(4, -2.5) node[anchor=east] (T0) {\footnotesize ``True'' 3-Way Merge} to[in=-90, out=0] (C5)
+	;
+
+	\node[] (T1) at ($(T0)+(0,-.4)$) {
+		\tiny\texttt{Merge branch 'origin/master' into master}
+	};
+
+\end{tikzpicture}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Konflikte}
+	\begin{block}{}
+	D.h. Was passiert wenn 2 Leute die gleiche Linie in einem Dokument bearbeiten?
+	\\
+	\pause
+	\vspace{1em}
+	Git kann nicht wissen welche version besser ist, und so fragt dir.
+	\end{block}
+	\begin{verbatim}
+...
+Here is a line that nobody touched
+<<<<<<< HEAD
+I have edited this line
+=======
+Someone else has also edited this line
+>>>>>>> origin/master
+...\end{verbatim}
+\end{frame}
+\begin{frame}{Warum ``3-Way''?}
+	\begin{center}
+	\begin{figure}
+	\fbox{\includegraphics[width=1\textwidth]{pic/smerge}}
+	\caption{Sublime Merge}
+	\end{figure}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Begriff: Fork}
