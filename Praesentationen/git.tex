@@ -556,13 +556,15 @@ Someone else has also edited this line
 	\visible<1->{
 	% rick's arrow
 	\draw[darkgray, ultra thick, <->]
-		($(DBA1.north east)+(.75,.5)$) to node[pos=.5, above]{\footnotesize\texttt{push / pull}} ($(DBA2.north west)+(-.75,.5)$);
+		($(DBA1.north east)+(.75,.5)$) to node[pos=.5, above]
+		{\footnotesize\texttt{push / pull}} ($(DBA2.north west)+(-.75,.5)$);
 	}
 
 	\visible<5->{
 	% morty's arrow
 	\draw[darkgray, ultra thick, <->]
-		($(DBB1.north east)+(.75,.5)$) to node[pos=.5, above]{\footnotesize\texttt{push / pull}} ($(DBB2.north west)+(-.75,.5)$);
+		($(DBB1.north east)+(.75,.5)$) to node[pos=.5, above]
+		{\footnotesize\texttt{push / pull}} ($(DBB2.north west)+(-.75,.5)$);
 	}
 
 	\visible<4->{
@@ -583,7 +585,8 @@ Someone else has also edited this line
 
 	% \visible<6->{
 	% \draw[darkgray, ultra thick, ->]
-		% ($(DBA2.south west)+(-1,-.5)$) to[bend right] node[pos=.6, below right, rotate=30]{\texttt{pull}}($(DBB1.north east)+(.75,1.5)$);
+		% ($(DBA2.south west)+(-1,-.5)$) to[bend right] node[pos=.6, below right, rotate=30]
+		%{\texttt{pull}}($(DBB1.north east)+(.75,1.5)$);
 	% }
 \end{tikzpicture}}
 \end{center}
