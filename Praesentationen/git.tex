@@ -90,14 +90,17 @@
         child { node [draw=none, fill=none] {awesome.a} }
     };}
 
+    \visible<2->{
 	\draw[black] pic{db} node (DB) {};
 	\draw[ultra thick, darkgray, ->]
 		($(P.east)+(.2,0)$) to[out=0, in=90] ($(DB.north)+(0,1.6)$)
 	;
 	\node[below=.3cm, align=center] (DB.south) {Repository};
+	}
 \end{tikzpicture}}
 \end{minipage}\hfill%
 \begin{minipage}{.4\linewidth}
+\pause
 F\"ur Git ein \emph{Repo} ist eine Verzeichnis mit einer spezieller (unsichtbar)
 Unterverzeichnis \texttt{\textcolor{red}{.git}}
 
@@ -159,6 +162,23 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
     By being a std::set job did not allow to add duplicate
     elements, changing it to a std::multiset fixes the issue.
 \end{verbatim}
+\end{frame}
+
+\begin{frame}[c]{Aber was ist ein Commit?}
+	\begin{center}
+	{\LARGE
+		Commit = ``Logical Unit of Work''
+	}
+
+	\vspace{2em}
+	Ein Commit kann auch sehr klein sein. \\
+	Generell kann man sagen: 
+	\vspace{2em}
+
+	{\LARGE
+		je mehr Commits, desto besser
+	}
+	\end{center}
 \end{frame}
 
 \subsection{Remote}
@@ -355,7 +375,8 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 					(.5,0) node[above=.2cm] {Local};
 
 	\begin{pgfonlayer}{bg}
-	\draw[blue, fill=blue!10] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-2)$);
+	\shade[top color=red!10, bottom color=blue!20] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-2)$);
+	\draw[blue] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-2)$);
 	\end{pgfonlayer}
 
 	\foreach \x in {0,...,2,}
