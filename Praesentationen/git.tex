@@ -82,6 +82,14 @@
         \item kryptographisches Hash der Dateien
     \end{itemize}
     \end{block}
+
+    \pause
+	\begin{center}
+	\textbf{
+		Commits \textcolor{red}{k\"onnen nicht} \"andert werden, \\
+    	weil sie ``Geschichte'' des Projekts sind.
+	}
+    \end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Commit Beispiel}
@@ -98,7 +106,7 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 \end{verbatim}
 \end{frame}
 
-\begin{frame}{Begriff: Remote}
+\begin{frame}{Begriff: Remote}\begin{center}
     \begin{minipage}{.65\linewidth}
 	\begin{tikzpicture}
 		\draw[thick]
@@ -114,8 +122,16 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 			(DB2.north west) ++(-1, 3) node[
 				black, anchor=north west, below=.75cm, right=.1cm, align=left
 			]{Server\\{\footnotesize (z.B. Github)}} rectangle ($(DB2.south east) + (1, -1)$);
+
 		\end{pgfonlayer}
 		\visible<3->{
+		\draw[]
+			(DB2.north west) ++(-1, 3) node[
+				black, anchor=south west, above=.25cm, right=.1cm, align=left
+			]{\texttt{origin}};
+		}
+
+		\visible<4->{
 		\draw[thick] (DB1) ++(1,  .2) edge[<-, bend right] 
 			node[pos=.5, below]{\texttt{pull}} ++(2.5, 0);
 		\draw[thick] (DB1) ++(1, 1.2) edge[->, bend left] 
@@ -126,29 +142,37 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 	\pause
 	\begin{minipage}[c]{.3\linewidth}
 	Ein \emph{Remote} ist ein Clone (Kopie) des Repos auf eine andere Maschine
+	\\
+	\pause
+
+	Remote k\"onnen ein name haben, z.B. \texttt{origin}
 	\end{minipage}
-\end{frame}
+\end{center}\end{frame}
 
 \begin{frame}{Zu einem Remote synchronisieren}
 \centering
 \begin{tikzpicture}
 	\node (rem) at (0, 0) {}
-					(.5,0) node[above=.2cm, align=left] {\texttt{origin}};
+					(.5,0) node[above=.2cm] {\texttt{origin}};
+
+	\node (loc) at (0,-2.5) {}
+					(.5,-2.5) node[above=.2cm] {Local};
+
 	\begin{pgfonlayer}{bg}
 	\draw[red, fill=red!10] ($(rem)+(-.5,1)$) rectangle ($(rem)+(6.5,-1)$);
+	\draw[blue, fill=blue!10] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-1)$);
 	\end{pgfonlayer}
+
 	\foreach \x in {0,...,2}
 	{
 		\draw[thick, black, ->] ($(rem)+(\x,0)$) edge ++(1, 0);
-		\draw[thick, black, fill=green!60!black] ($(rem)+(\x, 0)$) circle [radius=.1];
+		\draw[thick, black, fill=orange] ($(rem)+(\x, 0)$) circle [radius=.1];
+
+		\draw[thick, black, ->] ($(loc)+(\x, 0)$) edge ++(1, 0);
+		\draw[thick, black, fill=orange] ($(loc)+(\x, 0)$) circle [radius=.1];
 	}
 
-	\node (loc) at (0,-2.5) {}
-					(.5,-2.5) node[above=.2cm, align=left] {Local};
-	\begin{pgfonlayer}{bg}
-	\draw[blue, fill=blue!10] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-1)$);
-	\end{pgfonlayer}
-	\foreach \x in {0,...,4}
+	\foreach \x in {3,...,4}
 	{
 		\draw[thick, black, ->] ($(loc)+(\x, 0)$) edge ++(1, 0);
 		\draw[thick, black, fill=magenta] ($(loc)+(\x, 0)$) circle [radius=.1];
@@ -174,24 +198,28 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 \begin{tikzpicture}
 	\node (rem) at (0, 0) {}
 					(.5,0) node[above=.2cm] {\texttt{origin}};
-	\begin{pgfonlayer}{bg}
-	\draw[red, fill=red!10] ($(rem)+(-.5,1)$) rectangle ($(rem)+(6.5,-1)$);
-	\end{pgfonlayer}
-	\foreach \x in {0,...,4}
-	{
-		\draw[thick, black, ->] ($(rem)+(\x,0)$) edge ++(1, 0);
-		\draw[thick, black, fill=green!60!black] ($(rem)+(\x, 0)$) circle [radius=.1];
-	}
 
 	\node (loc) at (0,-2.5) {}
 					(.5,-2.5) node[above=.2cm] {Local};
+
 	\begin{pgfonlayer}{bg}
+	\draw[red, fill=red!10] ($(rem)+(-.5,1)$) rectangle ($(rem)+(6.5,-1)$);
 	\draw[blue, fill=blue!10] ($(loc)+(-.5,1)$) rectangle ($(loc)+(6.5,-1)$);
 	\end{pgfonlayer}
+
 	\foreach \x in {0,...,2}
 	{
+		\draw[thick, black, ->] ($(rem)+(\x,0)$) edge ++(1, 0);
+		\draw[thick, black, fill=orange] ($(rem)+(\x, 0)$) circle [radius=.1];
+
 		\draw[thick, black, ->] ($(loc)+(\x, 0)$) edge ++(1, 0);
-		\draw[thick, black, fill=magenta] ($(loc)+(\x, 0)$) circle [radius=.1];
+		\draw[thick, black, fill=orange] ($(loc)+(\x, 0)$) circle [radius=.1];
+	}
+
+	\foreach \x in {3,...,4}
+	{
+		\draw[thick, black, ->] ($(rem)+(\x,0)$) edge ++(1, 0);
+		\draw[thick, black, fill=green!60!black] ($(rem)+(\x, 0)$) circle [radius=.1];
 	}
 
 	\draw[thick, decorate, decoration={brace}] (2.5, .25) 
@@ -201,7 +229,6 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 	\draw[ultra thick, <-, darkgray] (3, -2.25) to[bend left]
 		node[pos=.5, left]{\texttt{pull}} (3,-.2);
 
-	
 	\foreach \x in {3,...,4}
 	{
 		\draw[thick, black, ->] ($(loc)+(\x,0)$) edge ++(1, 0);
