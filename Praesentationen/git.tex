@@ -502,12 +502,94 @@ Someone else has also edited this line
 \end{frame}
 
 \subsection{Fork}
-\begin{frame}{Begriff: Fork}
+\begin{frame}[c, plain]{Begriff: Fork}
+\begin{center}
+\resizebox{!}{\textheight}{
+\begin{tikzpicture}
+	\visible<1->{
+	% rick's repos
+	\draw (0, 0)          pic{db} node (DBA1){} node[below=.2cm] {\texttt{proj}};
+	\draw (DBA1) ++(6, 0) pic{db} node (DBA2){} node[below=.2cm] {\texttt{rick/proj}};
+	}
+
+	% morty's repos
+	\visible<5->{
+	\draw (DBA1) ++(0,-5) pic{db} node (DBB1){} node[below=.2cm] {\texttt{proj}};
+	}
+	\visible<4->{
+	\draw (DBB1) ++(6, 0) pic{db} node (DBB2){} node[below=.2cm] {\texttt{morty/proj}};
+	}
+	
+
+	\begin{pgfonlayer}{bg}
+	\visible<1->{
+
+	% laptop background
+	\draw[blue!80, fill=blue!10!white]
+		(DBA1.north west) ++(-1.2, 3) node[black, anchor=north west, below right=.2cm]{Laptop}
+		rectangle ($(DBB1.south east) + (1.2, -1.5)$);
+
+	% server background
+	\draw[red!80, fill=red!10!white]
+		(DBA2.north west) ++(-1.2, 3) node[black, anchor=north west, below right=.2cm]{Server}
+		rectangle ($(DBB2.south east) + (1.2, -1.5)$);
+
+	}
+
+	% rick's background
+	\visible<2->{
+	\draw[magenta!80, fill=magenta!20, fill opacity=.8]
+		(DBA1.north west) ++(-2.5, 2)
+		node[black, anchor=north east, rotate=90, below left=.2cm] {Rick}
+		rectangle ($(DBA2.south east) + (2, -.8)$);
+	}
+
+	% morty's background
+	\visible<3->{
+	\draw[cyan!80, fill=cyan!20, fill opacity=.8]
+		(DBB1.north west) ++(-2.5, 2)
+		node[black, anchor=north east, rotate=90, below left=.2cm] {Morty}
+		rectangle ($(DBB2.south east) + (2, -.8)$);
+	}
+	\end{pgfonlayer}
+
+	\visible<1->{
+	% rick's arrow
+	\draw[darkgray, ultra thick, <->]
+		($(DBA1.north east)+(.75,.5)$) to node[pos=.5, above]{\footnotesize\texttt{push / pull}} ($(DBA2.north west)+(-.75,.5)$);
+	}
+
+	\visible<5->{
+	% morty's arrow
+	\draw[darkgray, ultra thick, <->]
+		($(DBB1.north east)+(.75,.5)$) to node[pos=.5, above]{\footnotesize\texttt{push / pull}} ($(DBB2.north west)+(-.75,.5)$);
+	}
+
+	\visible<4->{
+	% forking arrow
+	\draw[black, ultra thick, ->]
+		($(DBA2.south west)+(0,-.75)$) to node[
+			pos=.5, left=.2cm, thick, draw=red, fill=white
+		]{\textbf{\texttt{fork}}} ($(DBB2.north west)+(0,1.75)$);
+	}
+
+	% PR arrow
+	\visible<6->{
+	\draw[black, ultra thick, <-]
+		($(DBA2.south east)+(0,-.75)$) to node[
+			pos=.5, right=.2cm, thick, draw=red, fill=white
+		]{\textbf{\texttt{pull request}}} ($(DBB2.north east)+(0,1.75)$);
+	}
+
+	% \visible<6->{
+	% \draw[darkgray, ultra thick, ->]
+		% ($(DBA2.south west)+(-1,-.5)$) to[bend right] node[pos=.6, below right, rotate=30]{\texttt{pull}}($(DBB1.north east)+(.75,1.5)$);
+	% }
+\end{tikzpicture}}
+\end{center}
 \end{frame}
 
 \section{Git benutzen}
-
-
 
 \begin{frame}{Arbeitsablauf}
 	Arbeitsablauf um eine Formelsammlung zu bearbeiten (alleine).
