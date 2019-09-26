@@ -44,9 +44,12 @@
 
 \AtBeginSection[]
 {
-	\begin{frame}
-		\frametitle{Inhaltsverzeichnis}
-		\tableofcontents[currentsection]
+	\begin{frame}[shrink]{Inhaltsverzeichnis}
+		\tableofcontents[
+			currentsection,
+			hideothersubsections,
+			sectionstyle=show/shaded,
+		]
 	\end{frame}
 }
 

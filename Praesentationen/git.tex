@@ -1,6 +1,7 @@
 \section{Warum Git}
 
-\begin{frame}{Was brauchen wir?}
+\subsection{Warum}
+\begin{frame}{Was m\"ochten wir?}
 	\begin{block}{Das Problem}
 		Dateien zwischen Machine synchronisieren und sie mit mehr Leute
 		bearbeiten. Spezifischer Textdateien bearbeiten (z.B. Quellcode)
@@ -17,6 +18,7 @@
 	\end{block}
 \end{frame}
 
+\subsection{Vorteile}
 \begin{frame}{Was ist git?}
 	\begin{block}{Was wir brauchen}
 	\begin{itemize}
@@ -50,6 +52,7 @@
 
 \section{Git lernen}
 
+\subsection{Repository}
 \begin{frame}{Begriff: Repository}
 \begin{minipage}{.55\linewidth}
 \resizebox{\textwidth}{!}{\begin{tikzpicture}[
@@ -104,6 +107,7 @@ Man soll \textbf{nie} \texttt{.git} l\"oschen.
 \end{minipage}
 \end{frame}
 
+\subsection{Commit}
 \begin{frame}{Snapshots}
     \begin{center}
     \begin{tikzpicture}
@@ -157,6 +161,7 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 \end{verbatim}
 \end{frame}
 
+\subsection{Remote}
 \begin{frame}{Begriff: Remote}\begin{center}
     \begin{minipage}{.65\linewidth}
 	\begin{tikzpicture}
@@ -294,6 +299,7 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 }
 \end{frame}
 
+\subsection{Merge}
 \begin{frame}{Merge}
 \begin{center}
 \resizebox{.9\textwidth}{!}{
@@ -383,7 +389,7 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 	\pause
 
 	\draw[ultra thick, darkgray, ->]
-		(4, -2.5) node[anchor=east] (T0) {\footnotesize ``True'' 3-Way Merge} to[in=-90, out=0] (C5)
+		(4, -2.5) node[anchor=east] (T0) {\footnotesize ``True'' Merge} to[in=-90, out=0] (C5)
 	;
 
 	\node[] (T1) at ($(T0)+(0,-.4)$) {
@@ -428,6 +434,11 @@ Someone else has also edited this line
 	\end{center}
 \end{frame}
 
+\subsection{Branch}
+\begin{frame}{Begriff: Branch}
+\end{frame}
+
+\subsection{Fork}
 \begin{frame}{Begriff: Fork}
 \end{frame}
 
