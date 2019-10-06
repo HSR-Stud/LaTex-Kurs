@@ -3,8 +3,8 @@
 \subsection{Warum}
 \begin{frame}{Was m\"ochten wir?}
 	\begin{block}{Das Problem}
-		Dateien zwischen Machine synchronisieren und sie mit mehr Leute
-		bearbeiten. Spezifischer Textdateien bearbeiten (z.B. Quellcode)
+		Spezifische Textdateien (z.B. Quellcode) zwischen Maschinen synchronisieren und sie mit mehreren Leuten
+		bearbeiten. 
 	\end{block}
 	\pause
 
@@ -20,20 +20,20 @@
 
 \subsection{Vorteile}
 \begin{frame}{Was ist git?}
-	\begin{block}{Was wir brauchen}
+	\begin{block}{Was brauchen wir}
 	\begin{itemize}
 		\item Synchronisation
-		\item Team Datei Bearbeitung
+		\item Team-Dateibearbeitung
 		\item Problemlose Offline-Nutzung
 	\end{itemize}
 	\end{block}
 	\pause
 
-	\begin{block}{Was kriegen wir extra}
+	\begin{block}{Was kriegen wir zusätzlich}
 	\begin{itemize}
 		\item Geschichte jedes Dokuments im Projekt
 		\item Kryptographische Sicherheit der Projektgeschichte
-		\item Gemeinsamer Dateizugriff ohne zentraler Server 
+		\item Gemeinsamer Dateizugriff ohne zentralen Server 
 	\end{itemize}
 	\end{block}
 \end{frame}
@@ -41,12 +41,12 @@
 \begin{frame}[c]{Bemerkung}
 	\centering
 	{\LARGE  
-	Git l\"ost ein komplex Problem \\
-	daher ist Git auch komplex
+	Git l\"ost ein komplexes Problem, \\
+	daher ist Git auch komplex.
 	}
 
 	{\footnotesize
-		But don't worry it's not \emph{too} hard
+		But don't worry it's not \emph{too} hard!
 	}
 \end{frame}
 
@@ -101,12 +101,12 @@
 \end{minipage}\hfill%
 \begin{minipage}{.4\linewidth}
 \pause
-F\"ur Git ein \emph{Repo} ist eine Verzeichnis mit einer spezieller (unsichtbar)
+F\"ur Git ist ein \emph{Repo} ein Verzeichnis mit einem speziellen (unsichtbaren)
 Unterverzeichnis \texttt{\textcolor{red}{.git}}
 
 \vspace{1em}
 
-Man soll \textbf{nie} \texttt{.git} l\"oschen.
+Man sollte \textbf{nie} \texttt{.git} l\"oschen.
 \end{minipage}
 \end{frame}
 
@@ -144,7 +144,7 @@ Man soll \textbf{nie} \texttt{.git} l\"oschen.
     \pause
 	\begin{center}
 	\textbf{
-		Commits \textcolor{red}{k\"onnen nicht} \"andert werden, \\
+		Commits \textcolor{red}{k\"onnen nicht} ge\"andert werden, \\
     	weil sie ``Geschichte'' des Projekts sind.
 	}
     \end{center}
@@ -193,7 +193,7 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 		\draw[blue!80, fill=blue!10]
 			(DB1.north west) ++(-1, 3) node[
 				black, anchor=north west, below=.75cm, right=.15cm, align=left
-			]{Laptop\\{\footnotesize (Sie)}} rectangle ($(DB1.south east) + (1, -1)$);
+			]{Laptop\\{\footnotesize (User)}} rectangle ($(DB1.south east) + (1, -1)$);
 		\draw[red!80, fill=red!10]
 			(DB2.north west) ++(-1, 3) node[
 				black, anchor=north west, below=.75cm, right=.1cm, align=left
@@ -217,11 +217,11 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
     \end{minipage}
 	\pause
 	\begin{minipage}[c]{.3\linewidth}
-	Ein \emph{Remote} ist ein Clone (Kopie) des Repos auf eine andere Maschine
+	Ein \emph{Remote} ist ein Clone (Kopie) des Repos auf einer anderen Maschine.
 	\\
 	\pause
 
-	Remote k\"onnen ein name haben, z.B. \texttt{origin}
+	Remote k\"onnen einen Namen haben, z.B. \texttt{origin}.
 	\end{minipage}
 \end{center}
 \end{frame}
@@ -424,11 +424,11 @@ Date:   Tue Jan 22 04:31:30 2019 +0100
 
 \begin{frame}[fragile]{Konflikte}
 	\begin{block}{}
-	D.h. Was passiert wenn 2 Leute die gleiche Linie in einem Dokument bearbeiten?
+	Was passiert wenn 2 Leute die gleiche Linie in einem Dokument bearbeiten?
 	\\
 	\pause
 	\vspace{1em}
-	Git kann nicht wissen welche version besser ist, und so fragt dir.
+	Git kann nicht wissen, welche Version besser ist, weshalb der User gefragt wird.
 	\end{block}
 	\begin{verbatim}
 ...
@@ -597,9 +597,9 @@ Someone else has also edited this line
 \begin{frame}{Arbeitsablauf}
 	Arbeitsablauf um eine Formelsammlung zu bearbeiten (alleine).
 	\begin{enumerate}
-		\item Fork ein Repository von HSR-Stud \pause
+		\item Forke ein Repository von HSR-Stud \pause
 		\item Bearbeiten \pause
-		\item Fortlaufend Commits erstellen Bsp. nach jedem Kapitel \pause
+		\item Fortlaufend Commits erstellen, z.B. nach jedem Kapitel \pause
 		\item Push
 	\end{enumerate}
 \end{frame}
@@ -607,11 +607,11 @@ Someone else has also edited this line
 \begin{frame}{Arbeitsablauf II}
 Arbeitsablauf um eine Formelsammlung zu bearbeiten (mehrere Autoren).
 \begin{enumerate}
-	\item Fork ein Repository von HSR-Stud  \pause
+	\item Forke ein Repository von HSR-Stud  \pause
 	\item Jede Person erstellt einen Branch \pause
 	\item Bearbeiten \pause
-	\item Fortlaufend Commits erstellen Bsp. nach jedem Kapitel \pause
-	\item Mit dem Master mergen Bsp. nach jedem Kapitel \pause
+	\item Fortlaufend Commits erstellen, z.B. nach jedem Kapitel \pause
+	\item Mit dem Master mergen, z.B. nach jedem Kapitel \pause
 	\item Push
 \end{enumerate}
 \end{frame}
