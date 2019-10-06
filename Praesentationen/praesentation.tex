@@ -1,17 +1,55 @@
-%\documentclass[handout]{beamer}
 \documentclass{beamer}
 
-\title{Git \& \LaTeX-Einführung}
-\author{Noah Kälin, Simon Walker}
-\date{24.09.2019/01.10.2019}
+\usepackage[german]{babel}
 
-\usetheme{Frankfurt}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{bending}
+\usetikzlibrary{decorations.pathreplacing}
+
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main}
+
+\tikzset{
+	db/.pic={
+		\draw[white, fill=white](-.6,0) rectangle (.6,1.4);
+		\draw[white, fill=white](0,1.4) ellipse [x radius=.6,y radius=.15];
+		\foreach \y in {0,.5,1}
+		{
+			\draw[thick, fill=white]
+				(-0.6,\y) to [looseness=0.5,bend right=90] ++(1.2,0)
+						  to ++(0,0.4)
+						  to [looseness=0.5,bend left=90] ++(-1.2,0)
+						  to ++(0,-0.4);
+			\draw[thick] (-0.6,\y+0.4) edge[looseness=0.5,bend left=90] ++(1.2,0);
+		}
+	}
+}
+
+
+\title{Git \& \textrm{\LaTeX}-Einführung}
+\author{
+    Noah Kälin\inst{1},
+    Simon Walker\inst{1},
+	Naoki Pross\inst{1}
+}
+\institute[HSR]{\inst{1}Hochschule f\"ur Technick Rapperswil}
+
+\date{24. September / 1. Oktober 2019}
+
+\usetheme{Malmoe}
+\usecolortheme{seagull}
 
 \AtBeginSection[]
 {
-	\begin{frame}
-		\frametitle{Inhaltsverzeichnis}
-		\tableofcontents[currentsection]
+	\begin{frame}[shrink]{Inhaltsverzeichnis}
+		\tableofcontents[
+			currentsection,
+			hideothersubsections,
+			sectionstyle=show/shaded,
+		]
 	\end{frame}
 }
 
@@ -19,7 +57,9 @@
 
 \frame{\titlepage}
 
+\part{Git}
 \input{git.tex}
+\part{\textrm{\LaTeX}}
 \input{latex.tex}
 
 \end{document}
